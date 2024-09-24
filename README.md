@@ -11,7 +11,7 @@ footer: "ECL 2.0 Licensed | Copyright © [2024] [Ткаченко Михайло
 
 *студент 2-го курсу, групи ІО-24*<span padding-right:5em></span> 
 
-**Ткаченком М.С. [Telegram](https://t.me/Rafaaam)**
+**Ткаченко М.С. [Telegram](https://t.me/Rafaaam)**
 
 **Керівник:**
 
