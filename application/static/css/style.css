@@ -1,0 +1,84 @@
+body {
+  background: #212121;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 90vh;
+  overflow-y: hidden;
+}
+
+.registration_form_header_text{
+  width: 17%;
+  margin: 0 auto;
+  margin-top: 0px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-family: sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.registration_form{
+  width: 17%;
+  margin: 0 auto;
+  text-align: center;
+  font-family: sans-serif;
+  color: #041018;
+  font-size: 15px;
+}
+
+.registration_form_text{
+  margin-top: 20px;
+  margin-bottom: 7px;
+  padding-top: 5px;
+  color: rgb(255, 255, 255);
+}
+
+.registration_form_input{
+  padding-top: 3px;
+  padding-bottom: 5px;
+  margin: 5px 0;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.registration_form_input_value{
+  width: 98%;
+  padding: 1%;
+}
+
+.registration_form_submit_button{
+  width: fit-content;
+  text-align: center;
+  margin-top: 15px;
+  padding: 4px;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: #417690;
+  border: 2px solid #a5a4a4;
+  border-radius: 2px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.error_message{
+  width: 17%;
+  margin: 0 auto;
+  margin-top: 15px;
+  text-align: center;
+  font-family: sans-serif;
+  color: red;
+  font-size: 17px;
+}
+
+.success_message{
+  width: 17%;
+  margin: 0 auto;
+  margin-top: 15px;
+  text-align: center;
+  font-family: sans-serif;
+  color: green;
+  font-size: 17px;
+}

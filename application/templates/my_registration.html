@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+      <link rel="shortcut icon" href="{% static 'icon/website_icon.png' %}">
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
+      <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css" rel="stylesheet">
+
+        <title>
+            Task manager
+        </title>
+    </head>
+    <body>
+        <div>
+        <p class="registration_form_header_text">Registration</p>
+    </div>
+    <form class="registration_form" name="authentication_form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+    <p class="registration_form_text" align="left"><strong>Username</strong></p>
+    <div class="registration_form_input">
+        <input class="registration_form_input_value" type="text" name="username" id="username" required maxlength="100">
+    </div>
+    <p class="registration_form_text" align="left"><strong>Email</strong></p>
+    <div class="registration_form_input">
+        <input class="registration_form_input_value" type="email" name="email" id="email" required maxlength="100">
+    </div>
+    <p class="registration_form_text" align="left"><strong>Password</strong></p>
+    <div class="registration_form_input">
+        <input class="registration_form_input_value" type="password" name="password" id="password" required maxlength="100">
+    </div>
+    <p class="registration_form_text" align="left"><strong>Repeat password</strong></p>
+    <div class="registration_form_input">
+        <input class="registration_form_input_value" type="password" name="repeat_password" id="repeat_password" required maxlength="100">
+    </div>
+    <div>
+        <button class="registration_form_submit_button" id="auth_submit_button" type="submit">Register</button>
+    </div>
+    </form>
+    <div style="text-align: center; margin-top: 10px;">
+        <small class="text-muted" style="color: white">
+            Already Have An Account? <a class="ml-2" href="manager">Sign In</a>
+        </small>
+    </div>
+
+    {% if registration_response == "success" %}
+    <div>
+        <p class="success_message">Registration successful!</p>
+        <script>
+            Swal.fire({icon: 'success', title: 'You have been successfully registrated!'})
+            
+            function redirect_to_another_page(){
+                 window.location.href = "manager";
+            }
+           
+            setTimeout(redirect_to_another_page, 2000)
+        </script>
+    </div>
+    {% elif registration_response == "passwords do not match" %}
+    <div>
+        <p class="error_message">Passwords do not match!</p>
+        <meta name="autofill_form_data" username={{ form_info.username }} email={{ form_info.email }} password={{ form_info.password }} repeat_password={{ form_info.repeat_password }}>
+    </div>
+    {% elif registration_response == "username is already taken" %}
+    <div>
+        <p class="error_message">Username is already taken!</p>
+        <meta name="autofill_form_data" username={{ form_info.username }} email={{ form_info.email }} password={{ form_info.password }} repeat_password={{ form_info.repeat_password }}>
+
+    </div>
+    {% elif registration_response == "email is already taken" %}
+    <div>
+        <p class="error_message">Email is already taken!</p>
+        <meta name="autofill_form_data" username={{ form_info.username }} email={{ form_info.email }} password={{ form_info.password }} repeat_password={{ form_info.repeat_password }}>
+    </div>
+    {% endif %}
+
+    <script>
+        function form_autofill(){
+            let form_info_to_autofill_username = document.querySelector("meta[name='autofill_form_data']").getAttribute("username");
+            let form_info_to_autofill_email = document.querySelector("meta[name='autofill_form_data']").getAttribute("email");
+            let form_info_to_autofill_password = document.querySelector("meta[name='autofill_form_data']").getAttribute("password");
+            let form_info_to_autofill_repeat_password = document.querySelector("meta[name='autofill_form_data']").getAttribute("repeat_password");
+
+            document.getElementById('username').value = form_info_to_autofill_username;
+            document.getElementById('email').value = form_info_to_autofill_email;
+            document.getElementById('password').value = form_info_to_autofill_password;
+            document.getElementById('repeat_password').value = form_info_to_autofill_repeat_password
+        }
+        form_autofill()
+    </script>
+    </body>
+</html>
+    
