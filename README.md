@@ -13,7 +13,7 @@ footer: "ECL 2.0 Licensed | Copyright © [2024] [Ткаченко Михайло
 
 **Ткаченком М.С. [Telegram](https://t.me/Rafaaam)**
 
-**Керівник**
+**Керівник:**
 
 **Русінов В.В.** 
 
